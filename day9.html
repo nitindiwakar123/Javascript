@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 9: DOM Manipulation</title>
+</head>
+
+<body>
+    <ul class="myClass">
+        <li id="myId"></li>
+    </ul>
+
+    <div class="container">
+        <div id="div1">One</div>
+        <div id="div2">Two</div>
+        <div id="div3">Three</div>
+    </div>
+
+    <img width="200px" id="img" class="myImage"
+        src="https://cdn.pixabay.com/photo/2023/08/19/13/42/flowers-8200510_1280.jpg" alt="">
+
+    <div>
+        <p class="para"></p>
+        <button id="btn">Click me</button>
+    </div>
+    <br>
+    <div style="width: 100px; height: 100px; background-color: red; border: 2px solid black;" class="changeBorder">
+    </div>
+    <br>
+</body>
+<script>
+    //Activity 1: Selecting and Manipulating Elements
+    //Task 1:
+    document.getElementById('myId').textContent = "New Text Content";
+
+    //Task 2:
+    // const changeBgc = document.getElementsByClassName('myClass');
+    // changeBgc[0].style.backgroundColor = "red";
+
+    //Activity 2: Creating and Appending Elements
+    //Task 3:
+    const div = document.createElement('div');
+    div.innerText = "This is Div Text";
+    document.body.appendChild(div);
+
+    //Task 4:
+    const ul = document.querySelector('.myClass');
+    const li = document.createElement('li');
+    li.appendChild(document.createTextNode("New li Element"));
+    ul.appendChild(li);
+
+    //Activity 3: Removing Elements
+    //Task 5:
+    const removeIt = document.querySelector('#div1');
+    removeIt.remove();
+
+    //Task 6:
+    const parent = document.querySelector('.container');
+    const lastChild = parent.lastElementChild;
+    lastChild.remove();
+
+    //Activity 4: Modifying Attributes and Classes
+    const image = document.querySelector('#img');
+    image.src = "https://cdn.pixabay.com/photo/2024/06/18/13/16/oceans-view-8838022_640.jpg";
+
+    //Task 8:
+    image.removeAttribute('class')
+    console.log(image);
+    image.setAttribute('class', "newClass");
+
+    //Activity 5: Event Handling
+    //Task 9:
+    const button = document.querySelector('#btn');
+    const para = document.querySelector('.para');
+    button.addEventListener('click', function () {
+        para.innerHTML = "This is new Paragraph";
+    })
+
+    //Task 10:
+    const newDiv = document.querySelector('.changeBorder');
+    newDiv.addEventListener('mouseover', function () {
+        newDiv.style.borderColor = "blue";
+    })
+
+
+</script>
+
+</html>
