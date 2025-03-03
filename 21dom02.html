@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <!-- // COMMENT -->
+        <div class="days">Monday</div>
+        <div class="days">Tuesday</div>
+        <div class="days">Wednesday</div>
+        <div class="days">Thursday</div>
+    </div>
+    
+</body>
+<script>
+    const parent = document.querySelector('.parent')
+    // console.log(parent);
+    // console.log(parent.children);
+    // console.log(parent.children[0]);
+    // console.log(parent.children[0].innerText);
+    // console.log(parent.parentElement);
+    console.log("Nodes: ", parent.childNodes); //Important discussion about NodeList. A nodelist is a collection of document nodes which includes text nodes , attribute nodes and element nodes. A line break is also counted in nodelist but only first one. All subsequent line breaks are ignored by browser
+
+
+    // for (let i = 0; i < parent.children.length; i++) {
+    //     console.log(parent.children[i].innerText);
+
+    // }
+    const parentChildren = parent.children;
+    // console.log(parentChildren);
+    const parentArray = Array.from(parentChildren);
+    // console.log(parentArray);
+
+    //     const map = parentArray.map((item) => item.innerText);
+    // console.log(map);
+    // const filter = parentArray.filter((item) => {
+    // return item.innerText
+    // })
+    // console.log(filter);
+
+    parentChildren[1].style.backgroundColor = "red";
+
+    // console.log(parent.firstElementChild);
+    // console.log(parent.firstElementChild.getAttribute('class'));
+    // console.log(parent.lastElementChild);
+
+    // const dayOne = document.querySelector('.days');
+    // console.log(dayOne);
+    // console.log(dayOne.parentElement);
+    // console.log(dayOne.nextElementSibling);
+
+</script>
+
+</html>
