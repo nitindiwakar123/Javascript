@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation</title>
+    <style>
+        body{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <ul class="language">
+        <li>JavaScript</li>
+    </ul>
+</body>
+<script>
+    // Creating a New Element using function
+    //UnOptimized Way
+    function addLanguage(langName){
+        const li = document.createElement('li')
+        li.innerHTML = `${langName}`
+        document.querySelector('.language').appendChild(li)
+    }
+    addLanguage("python")
+    addLanguage("typeScript")
+
+    //Optimized Way
+    function addOptiLanguage(langName){
+        const li = document.createElement('li')
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector('.language').appendChild(li)
+    }
+    addOptiLanguage("golang")
+
+    //Edit a Element
+    const SecondLang = document.querySelector('li:nth-child(2)')
+    SecondLang.innerHTML = "dart" //UnOptimized Way
+
+    //Optimized Way
+    const newLi = document.createElement('li')
+    newLi.appendChild(document.createTextNode('c++'))
+    SecondLang.replaceWith(newLi)
+
+    //other way
+    const firstLang = document.querySelector('li:nth-child(1)')
+    firstLang.outerHTML = '<li>Swift</li>'
+
+    //Remove a ELement
+    // const lastLang = document.querySelector('li:last-child');
+    // lastLang.remove();
+</script>
+</html>
