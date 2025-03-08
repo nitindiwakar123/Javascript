@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bg-black {
+            background-color: rgb(0, 0, 0);
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="bg-black">
+    <p id="para"></p>
+    <button>Click me</button>
+
+    <div>
+        <input type="text" name="" id="textBox">
+        <div id="output"></div>
+    </div>
+    <br>
+
+    <form action="">
+        <p>
+            <label for="email">Email</label>
+            <input type="email" id="email">
+        </p>
+        <p>
+            <label for="pass">Password</label>
+            <input type="password" name="" id="pass">
+        </p>
+        <p>
+            <input type="submit" value="Login" id="submit">
+        </p>
+    </form>
+</body>
+<script>
+    //JavaScript Events
+    //Events are things that happen in the system you are programming — the system produces (or "fires") a signal of some kind when an event occurs, and provides a mechanism by which an action can be automatically taken (that is, some code running) when the event occurs.
+
+    // There are many different types of events that can occur.
+
+    // For example:
+
+    // The user selects, clicks, or hovers the cursor over a certain element.
+    // The user chooses a key on the keyboard.
+    // The user resizes or closes the browser window.
+    // A web page finishes loading.
+    // A form is submitted.
+    // A video is played, paused, or ends.
+    // An error occurs.
+
+    //     When such a block of code is defined to run in response to an event, we say we are registering an event handler. Note: Event handlers are sometimes called event listeners — they are pretty much interchangeable for our purposes, although strictly speaking, they work together. The listener listens out for the event happening, and the handler is the code that is run in response to it happening.
+    /*
+    //addEventListener() Method
+    //objects that can fire events have an addEventListener() method, and this is the recommended mechanism for adding event handlers.
+    const button = document.querySelector('button');
+
+    button.addEventListener('click', function (e) {
+        document.body.style.backgroundColor = `rgb(${randomNumber()}, ${randomNumber()}, ${randomNumber()})`;
+    }, false)
+
+    const randomNumber = () => {
+        return Math.floor((Math.random() * 255) + 1);
+    }
+
+
+    //Listening for Other Events
+    //There are many different events that can be fired by a button element. Let's experiment.
+
+    //focus and blur — The color changes when the button is focused and unfocused; try pressing the tab to focus on the button and press the tab again to focus away from the button. 
+
+    //dblclick — The color changes only when the button is double-clicked.
+
+    //mouseover and mouseout — The color changes when the mouse pointer hovers over the button, or when the pointer moves off the button, respectively.
+
+    //Some events, such as click, are available on nearly any element. Others are more specific and only useful in certain situations: for example, the play event is only available on some elements, such as <video>.
+    */
+    //Removing Listeners
+    //   If you've added an event handler using addEventListener(), you can remove it again using the removeEventListener() method.
+    /*
+    const button = document.querySelector('button');
+
+    button.addEventListener('click', changeBg());
+
+    function changeBg(){
+        return document.body.style.backgroundColor = `rgb(${randomNumber()}, ${randomNumber()}, ${randomNumber()})`;
+    }
+
+    const randomNumber = () => {
+        return Math.floor((Math.random() * 255) + 1);
+    }
+
+    button.removeEventListener('click', changeBg());
+
+   //Event handlers can also be removed by passing an AbortSignal to addEventListener() and then later calling abort() on the controller owning the AbortSignal. For example, to add an event handler that we can remove with an AbortSignal:
+    const button = document.querySelector('button');
+    const controller = new AbortController();
+
+    button.addEventListener('click', function (e) {
+        document.body.style.backgroundColor = `rgb(${randomNumber()}, ${randomNumber()}, ${randomNumber()})`;
+    },
+    {signal: controller.signal} 
+);
+controller.abort();
+
+    const randomNumber = () => {
+        return Math.floor((Math.random() * 255) + 1);
+    }
+
+
+    // Adding multiple listeners for a single event
+    //By making more than one call to addEventListener(), providing different handlers, you can have multiple handlers for a single event:
+
+    //Other event listener mechanisms
+    //Objects (such as buttons) that can fire events also usually have properties whose name is on followed by the name of the event. For example, elements have a property onclick. This is called an event handler property. To listen for the event, you can assign the handler function to the property.
+    const button = document.querySelector('button');
+    button.onclick = function(){
+        document.getElementById('para').innerHTML = "This is a Paragraph";
+    }
+    */
+
+
+    //Events Objects
+    //Sometimes, inside an event handler function, you'll see a parameter specified with a name such as event, evt, or e. This is called the event object, and it is automatically passed to event handlers to provide extra features and information.
+    const button = document.querySelector('button');
+
+    /*
+    button.addEventListener('click', function (e) {
+        document.body.style.backgroundColor = `rgb(${randomNumber()}, ${randomNumber()}, ${randomNumber()})`;
+    }, false)
+
+    const randomNumber = () => {
+        return Math.floor((Math.random() * 255) + 1);
+    }
+
+   */
+    /*
+   // e.target — which is the button itself. The target property of the event object is always a reference to the element the event occurred upon. So, in this example, we are setting a random background color on the button, not the page.
+    button.addEventListener('click', function (e) {
+        e.target.style.backgroundColor = `rgb(${randomNumber()}, ${randomNumber()}, ${randomNumber()})`;
+    }, false)
+
+    const randomNumber = () => {
+        return Math.floor((Math.random() * 255) + 1);
+    }
+    */
+    /*
+     //Note: You can use any name you like for the event object — you just need to choose a name that you can then use to reference it inside the event handler function. e/evt/event is most commonly used by developers because they are short and easy to remember. It's always good to be consistent — with yourself, and with others if possible.
+
+     //e.key property:
+     const text = document.querySelector('#textBox');
+     const output = document.querySelector('#output');
+
+     text.addEventListener('keydown', (e) => {
+         output.textContent = `you pressed: "${e.key}"`;
+     });
+     */
+
+    //Preventing default behavior
+    //preventDefault() method stops the default action of an element from happening
+    const form = document.querySelector('form');
+    const email = document.getElementById('email');
+    const password = document.getElementById('pass');
+    const submit = document.getElementById('submit');
+
+    form.addEventListener('submit', function (e) {
+        if (email === '' || email == '') {
+            e.preventDefault();
+            alert('Please Enter Valid Email!');
+        }
+        else if (isNaN(password)) {
+            e.preventDefault();
+            alert('Please Enter Valid Password!');
+        }
+    }, false)
+
+
+</script>
+
+</html>
