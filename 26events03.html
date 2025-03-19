@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="background-color: black; color: white;">
+    <div id="container">
+        <button>Click me</button>
+    </div>
+    <p id="output"></p>
+</body>
+<script>
+    //Event Bubbling
+    /*
+    const container = document.querySelector('#container');
+    const output = document.querySelector('#output')
+    const button = document.querySelector('button');
+    container.addEventListener('click', function (e) {
+        output.innerHTML += `you clicked on a ${e.currentTarget.tagName} element!\n`;
+    }, false)
+
+    button.addEventListener('click', function (e) {
+        output.innerHTML += `you clicked on a ${e.currentTarget.tagName} element!\n`;
+    }, false)
+
+    document.body.addEventListener('click', function (e) {
+        output.innerHTML += `you clicked on a ${e.currentTarget.tagName} element!\n`;
+    }, false)
+
+    //You'll see that all three elements fire a click event when the user clicks the button:
+    //     In this case:
+    // the click on the button fires first
+    // followed by the click on its parent (the <div> element)
+    // followed by the <div> element's parent (the <body> element).
+
+    //We describe this by saying that the event bubbles up from the innermost element that was clicked.
+
+    */
+   /*
+    // Fixing the problem with stopPropagation()
+    //The Event object has a function available on it called stopPropagation() which, when called inside an event handler, prevents the event from bubbling up to any other elements.
+    const container = document.querySelector('#container');
+    const output = document.querySelector('#output')
+    const button = document.querySelector('button');
+    container.addEventListener('click', function (e) {
+        output.innerHTML += `you clicked on a ${e.currentTarget.tagName} element!\n`;
+    }, false)
+
+    button.addEventListener('click', function (e) {
+        e.stopPropagation();
+        output.innerHTML += `you clicked on a ${e.currentTarget.tagName} element!\n`;
+    }, false)
+
+    document.body.addEventListener('click', function (e) {
+        output.innerHTML += `you clicked on a ${e.currentTarget.tagName} element!\n`;
+    }, false)
+    */
+   /*
+    //Event Capture
+    // An alternative form of event propagation is event capture. This is like event bubbling but the order is reversed(top to bottom).
+    const container = document.querySelector('#container');
+    const output = document.querySelector('#output')
+    const button = document.querySelector('button');
+    container.addEventListener('click', function (e) {
+        output.innerHTML += `you clicked on a ${e.currentTarget.tagName} element!\n`;
+    }, true)
+
+    button.addEventListener('click', function (e) {
+
+        output.innerHTML += `you clicked on a ${e.currentTarget.tagName} element!\n`;
+    }, true)
+
+    document.body.addEventListener('click', function (e) {
+        output.innerHTML += `you clicked on a ${e.currentTarget.tagName} element!\n`;
+    }, true)
+
+    //In this case, the order of messages is reversed: the <body> event handler fires first, followed by the <div> event handler, followed by the <button> event handler:
+
+    //you can also stop capturing using stopPropogation() Method.    
+    */
+    //Note: Event bubbling and capturing is specified by third parameter of event listener if it is true it means capturing is enabled, if it is false it means bubbling is enabled by default it is false.
+
+    //e.target vs e.currentTarget Property
+    // The difference is that target refers to the element on which the event was initially fired, while currentTarget refers to the element to which this event handler has been attached.
+
+
+</script>
+
+</html>
